@@ -1,4 +1,5 @@
 from pynput import keyboard
+import time
 
 def on_press(key, injected):
     try:
@@ -11,6 +12,9 @@ def on_press(key, injected):
 def on_release(key, injected):
     print('{} released; it was {}'.format(
         key, 'faked' if injected else 'not faked'))
+    current_time = time.ctime()
+    print("Current time in seconds since the epoch:", current_time)
+    
     if key == keyboard.Key.esc:
         # Stop listener
         return False
